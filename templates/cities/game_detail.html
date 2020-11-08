@@ -1,0 +1,15 @@
+{% extends "cities/base.html" %}
+{% block content %}
+
+    <h1>{{ object.name }}</h1>
+    <ul>
+    <li>Status: {{ status }}</li>
+    <li>Player 1:
+
+            <a href="{% url 'game_claim' pk=object.pk player=1 %}">{{ object.p1_name|default_if_none:'Start playing' }}</a>
+
+    <li>Player 2:
+     <a href="{% url 'game_claim' pk=object.pk player=2 %}">{{ object.p2_name|default_if_none:'Start playing' }}</a>
+    </ul>
+
+{%  endblock %}
